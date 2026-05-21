@@ -38,11 +38,28 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="MPV-3t-fz4"/>
                         <segue destination="Xbh-PM-Wb3" kind="relationship" relationship="viewControllers" id="yWl-iY-KUd"/>
+                        <segue destination="RVx-gZ-k3F" kind="relationship" relationship="viewControllers" id="MTH-Ur-hGA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wab-Kf-wcS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.1679389312977" y="130.98591549295776"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="EzE-Xp-b5o">
+            <objects>
+                <viewController id="RVx-gZ-k3F" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zUZ-rw-fl0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="K3N-FK-fmi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" id="q30-VT-4yn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wI2-tT-hnn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="875"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="RR9-JX-Yw5">
@@ -62,8 +79,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="trophy" width="32" height="32"/>
+        <image name="trophy" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

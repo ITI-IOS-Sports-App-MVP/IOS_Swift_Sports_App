@@ -1,6 +1,15 @@
 {
-  "originHash" : "0271592b24e5dc1185a09e3f2d980d55521827815d397c9bce8e63d502a51e84",
+  "originHash" : "b8ed8347c58a197d03452deed7cca962e9507ba8c25c0147f177c1d2442db461",
   "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "7595cbcf59809f9977c5f6378500de2ad73b7ddb",
+        "version" : "5.12.0"
+      }
+    },
     {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",

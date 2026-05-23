@@ -10,13 +10,9 @@ import UIKit
 
 class LeaguesViewController: UITableViewController, LeaguesViewProtocol {
 
-    // MARK: - MVP Architecture
     var presenter: LeaguesPresenterProtocol!
-    
-    // UI Elements
     private var activityIndicator = UIActivityIndicatorView(style: .large)
 
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Leagues"
@@ -27,14 +23,10 @@ class LeaguesViewController: UITableViewController, LeaguesViewProtocol {
         presenter.viewDidLoad()
     }
     
-    // MARK: - Setup
     private func setupTableView() {
-        // UITableViewController automatically sets the delegate and dataSource to `self`.
-        
-        // Remove default separator lines for the floating card look
+
         tableView.separatorStyle = .none
         
-        // Register the XIB/Nib file
         let cellNib = UINib(nibName: "LeagueTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "LeagueTableViewCell")
     }
@@ -42,8 +34,6 @@ class LeaguesViewController: UITableViewController, LeaguesViewProtocol {
     private func setupLoadingIndicator() {
         activityIndicator.hidesWhenStopped = true
         
-        // In a UITableViewController, it's best to place the activity indicator
-        // in the table's backgroundView so it stays centered and doesn't scroll with the cells.
         let backgroundView = UIView(frame: tableView.bounds)
         activityIndicator.center = backgroundView.center
         backgroundView.addSubview(activityIndicator)
@@ -51,7 +41,6 @@ class LeaguesViewController: UITableViewController, LeaguesViewProtocol {
         tableView.backgroundView = backgroundView
     }
     
-    // MARK: - LeaguesViewProtocol (MVP View Methods)
     func showLoadingIndicator() {
         activityIndicator.startAnimating()
     }
@@ -74,9 +63,7 @@ class LeaguesViewController: UITableViewController, LeaguesViewProtocol {
         }
     }
     
-    // MARK: - UITableView Delegate & DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // We use optional chaining `?` here just in case the presenter isn't injected yet
         return presenter?.getLeaguesCount() ?? 0
     }
     

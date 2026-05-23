@@ -16,6 +16,8 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var getStartedButton: UIButton! 
     
+    var presenter: OnboardingPresenter!
+    
     var slides: [OnboardingSlide] = []
     
     var currentPage = 0 {
@@ -46,13 +48,11 @@ class OnboardingViewController: UIViewController {
     
     func updateUI() {
         if currentPage == slides.count - 1 {
-            // Last Page: Show ONLY the big "Get Started" button
             getStartedButton.isHidden = false
             nextButton.isHidden = true
             prevButton.isHidden = true
             skipButton.isHidden = true
         } else {
-            // Other Pages: Show normal pagination controls
             getStartedButton.isHidden = true
             nextButton.isHidden = false
             prevButton.isHidden = currentPage == 0
@@ -78,14 +78,16 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func getStartedButtonClicked(_ sender: UIButton) {
-        goToHome()
+        presenter.onGetStartedTapped()
     }
     
     @IBAction func skipButtonClicked(_ sender: UIButton) {
-        goToHome()
+        presenter.onSkipTapped()
     }
-    
-    func goToHome() {
+}
+
+extension OnboardingViewController: OnboardingViewProtocol {
+    func navigateToHome() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController {
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -99,7 +101,6 @@ class OnboardingViewController: UIViewController {
     }
 }
 
-// MARK: - CollectionView Extension
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -10,7 +10,7 @@
 "sport_soccer" = "كرة القدم";
 "sport_basketball" = "كرة السلة";
 "sport_tennis" = "التنس";
-"sport_american_football" = "كرة القدم الأمريكية";
+"cricket" = "الكريكت";
 
 /* Onboarding - Slide 1 */
 "onboarding_title_1" = "عالمك الرياضي في مكان واحد";
@@ -32,3 +32,13 @@
 
 /* Launch Screen */
 "launch_tagline" = "لا تفوّت أي لحظة من اللعبة";
+
+/* Settings Screen */
+"settings_appearance" = "المظهر";
+"settings_localization" = "اللغة";
+"settings_app_theme" = "مظهر التطبيق";
+"settings_language" = "اللغة";
+"settings_dark_mode" = "الوضع الداكن";
+"settings_light_mode" = "الوضع الفاتح";
+"settings_english" = "English";
+"settings_arabic" = "العربية";

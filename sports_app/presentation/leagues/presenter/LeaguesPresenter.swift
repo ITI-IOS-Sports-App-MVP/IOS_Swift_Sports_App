@@ -42,6 +42,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
     
     func configureCell(_ cell: LeagueCellViewProtocol, at index: Int) {
         let league = leaguesList[index]
+        print(league)
         cell.displayLeagueName(league.leagueName ?? "Unknown League")
         cell.displayLeagueBadge(from: league.leagueLogo ?? "")
         cell.displayLeagueCountry(league.leagueCountry ?? "Unknown Country")

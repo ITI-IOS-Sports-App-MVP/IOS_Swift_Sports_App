@@ -178,7 +178,7 @@
         <!--Settings-->
         <scene sceneID="EzE-Xp-b5o">
             <objects>
-                <viewController id="RVx-gZ-k3F" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="RVx-gZ-k3F" customClass="SettingsViewController" customModule="sports_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zUZ-rw-fl0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

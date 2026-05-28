@@ -64,6 +64,14 @@ class HomeViewController: UIViewController, UISearchBarDelegate {
         languageLabel.addGestureRecognizer(langTap)
         
         themeButton.addTarget(self, action: #selector(themeTapped), for: .touchUpInside)
+        
+        let stackView = UIStackView(arrangedSubviews: [languageLabel, themeButton])
+            stackView.axis = .horizontal
+            stackView.spacing = 16
+            stackView.alignment = .center
+        
+        let barButtonItem = UIBarButtonItem(customView: stackView)
+        self.navigationItem.rightBarButtonItem = barButtonItem
     }
     
     @objc private func languageTapped() {

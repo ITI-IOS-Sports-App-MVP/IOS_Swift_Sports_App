@@ -64,6 +64,19 @@ class LeaguesViewController: UITableViewController, LeaguesViewProtocol {
         }
     }
     
+    func navigateToLeagueDetails(with league: League) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            guard let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController else {
+                print("Could not find LeagueDetailsViewController")
+                return
+            }
+            
+             detailsVC.title = league.leagueName
+            
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.getLeaguesCount() ?? 0
     }

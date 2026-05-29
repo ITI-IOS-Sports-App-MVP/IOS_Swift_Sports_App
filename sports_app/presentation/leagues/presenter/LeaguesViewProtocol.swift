@@ -13,6 +13,7 @@ protocol LeaguesViewProtocol: AnyObject {
     func hideLoadingIndicator()
     func reloadTableView()
     func showError(message: String)
+    func navigateToLeagueDetails(with league: League)
 }
 
 protocol LeaguesPresenterProtocol {

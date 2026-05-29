@@ -50,6 +50,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
     
     func didSelectRow(at index: Int) {
         let selectedLeague = leaguesList[index]
-        print("Navigate to details for \(selectedLeague.leagueName ?? "")")
+        
+        view?.navigateToLeagueDetails(with: selectedLeague)
     }
 }

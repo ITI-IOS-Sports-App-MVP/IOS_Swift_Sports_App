@@ -29,8 +29,14 @@ class LeagueDetailsViewController: UICollectionViewController {
             UINib(nibName: "EventCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: "EventCell"
         )
-        //        collectionView.register(UINib(nibName: "LatestResultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "LatestResultCell")
-        //        collectionView.register(UINib(nibName: "TeamCircleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TeamCircleCell")
+        collectionView.register(
+            UINib(nibName: "LatestResultCollectionViewCell", bundle: nil),
+            forCellWithReuseIdentifier: "LatestResultCell"
+        )
+        collectionView.register(
+            UINib(nibName: "TeamCircleCollectionViewCell", bundle: nil),
+            forCellWithReuseIdentifier: "TeamCircleCell"
+        )
 
         let headerNib = UINib(nibName: "SectionHeaderView", bundle: nil)
         collectionView.register(
@@ -96,20 +102,28 @@ class LeagueDetailsViewController: UICollectionViewController {
     private func createLatestResultsSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0)
+            heightDimension: .fractionalHeight(0.33)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
+        let groupHeight: CGFloat = (140 * 3) + (16 * 2)
+
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(140)
-        )
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: groupSize,
-            subitems: [item]
+            widthDimension: .fractionalWidth(0.9),
+            heightDimension: .absolute(groupHeight)
         )
 
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: groupSize,
+            subitem: item,
+            count: 3
+        )
+        group.interItemSpacing = .fixed(16)
+
         let section = NSCollectionLayoutSection(group: group)
+
+        section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+
         section.interGroupSpacing = 16
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 10,
@@ -188,25 +202,28 @@ class LeagueDetailsViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
 
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "EventCell",
-            for: indexPath
-        )
-        return cell
+        switch sectionType {
+        case .upcomingEvents:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "EventCell",
+                for: indexPath
+            )
+            return cell
 
-        //        switch sectionType {
-        //        case .upcomingEvents:
-        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCell", for: indexPath)
-        //            return cell
-        //
-        //        case .latestResults:
-        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LatestResultCell", for: indexPath)
-        //            return cell
-        //
-        //        case .teams:
-        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCircleCell", for: indexPath)
-        //            return cell
-        //        }
+        case .latestResults:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "LatestResultCell",
+                for: indexPath
+            )
+            return cell
+
+        case .teams:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "TeamCircleCell",
+                for: indexPath
+            )
+            return cell
+        }
     }
 
     override func collectionView(

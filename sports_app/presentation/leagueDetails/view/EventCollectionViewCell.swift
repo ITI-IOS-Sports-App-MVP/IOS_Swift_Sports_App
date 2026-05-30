@@ -9,7 +9,6 @@ import UIKit
 
 class EventCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var homeTeamImageView: UIImageView!
     @IBOutlet weak var awayTeamImageView: UIImageView!
     @IBOutlet weak var matchNameLabel: UILabel!

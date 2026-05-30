@@ -86,7 +86,6 @@
             <size key="customSize" width="179" height="107"/>
             <connections>
                 <outlet property="awayTeamImageView" destination="Srz-93-Teo" id="qCD-Nb-njw"/>
-                <outlet property="containerView" destination="m23-mU-yND" id="Cjr-qO-jHY"/>
                 <outlet property="homeTeamImageView" destination="9A1-BZ-Omg" id="vBn-DQ-6ph"/>
                 <outlet property="matchDateLabel" destination="ha6-Pi-35u" id="IBO-jv-u2I"/>
                 <outlet property="matchNameLabel" destination="QoS-WT-uov" id="Zc5-lr-ITs"/>

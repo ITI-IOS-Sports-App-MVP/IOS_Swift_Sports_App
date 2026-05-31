@@ -5,7 +5,6 @@
 //  Created by Thaowpsta Saiid on 23/05/2026.
 //
 
-
 import Foundation
 
 protocol LeaguesViewProtocol: AnyObject {
@@ -13,6 +12,7 @@ protocol LeaguesViewProtocol: AnyObject {
     func hideLoadingIndicator()
     func reloadTableView()
     func showError(message: String)
+    func navigateToLeagueDetails(with league: League, sportName: String)
 }
 
 protocol LeaguesPresenterProtocol {
@@ -27,4 +27,3 @@ protocol LeagueCellViewProtocol {
     func displayLeagueBadge(from urlString: String)
     func displayLeagueCountry(_ country: String)
 }
-
